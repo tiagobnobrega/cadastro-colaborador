@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
 import { getEmployee, listEmployees, saveAndReload } from '../../actions';
 import ProjectDetailForm from '../../components/ProjectDetailForm';
 import bindAll from 'lodash/bindAll';

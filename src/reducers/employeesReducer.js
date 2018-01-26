@@ -4,22 +4,32 @@ import { handleActions } from 'redux-actions';
 // the initial state of this reducer
 export const INITIAL_STATE = {
   data: [],
+  one: undefined,
   isFetching: false,
 };
 
 export const HANDLERS = {
-  [TYPES.PROJECT_GET_ALL_REQUEST]: (
+  [TYPES.EMPLOYEE_REQUEST]: (
     state = INITIAL_STATE,
     { type, payload, meta }
   ) => {
     return { ...state, isFetching: true };
   },
-  [TYPES.PROJECT_GET_ALL_SUCCESS]: (
+  [TYPES.EMPLOYEE_LIST_SUCCESS]: (
     state = INITIAL_STATE,
     { type, payload, meta }
   ) => {
     return {
       data: payload,
+      isFetching: false,
+    };
+  },
+  [TYPES.EMPLOYEE_GET_ONE_SUCCESS]: (
+    state = INITIAL_STATE,
+    { type, payload, meta }
+  ) => {
+    return {
+      one: payload[0],
       isFetching: false,
     };
   },

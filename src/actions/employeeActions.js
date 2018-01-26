@@ -3,8 +3,8 @@ import { createAction } from 'redux-actions';
 export const TYPES = {
   EMPLOYEE_REQUEST: 'EMPLOYEE_REQUEST',
   EMPLOYEE_LIST: 'EMPLOYEE_LIST',
-  EMPLOYEE_LIST_SUCCESS: 'EMPLOYEE_GET_ALL_SUCCESS',
-  EMPLOYEE_LIST_FAIL: 'EMPLOYEE_GET_ALL_FAIL',
+  EMPLOYEE_LIST_SUCCESS: 'EMPLOYEE_LIST_SUCCESS',
+  EMPLOYEE_LIST_FAIL: 'EMPLOYEE_LIST_FAIL',
 
   EMPLOYEE_SELECT: 'EMPLOYEE_SELECT',
 
@@ -35,8 +35,8 @@ export const listEmployeesFail = createAction(
   error => error
 );
 
-export const getEmployee = createAction(TYPES.EMPLOYEE_GET_ONE, code => ({
-  code,
+export const getEmployee = createAction(TYPES.EMPLOYEE_GET_ONE, id => ({
+  id,
 }));
 export const getEmployeeFail = createAction(
   TYPES.EMPLOYEE_GET_ONE_FAIL,

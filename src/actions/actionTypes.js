@@ -1,4 +1,4 @@
-import { TYPES as employeeTypes } from './projectsActions';
+import { TYPES as employeeTypes } from './employeeActions';
 
 export const TYPES = {
   ...employeeTypes,

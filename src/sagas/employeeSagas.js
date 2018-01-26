@@ -5,7 +5,7 @@ import { TYPES } from '../actions';
 
 const apiRoot = '/api/employee';
 export function* listEmployeesSaga(action) {
-  yield put(actions.requestEmployee);
+  yield put(actions.requestEmployee());
   const response = yield axios.get(apiRoot);
   yield put(actions.listEmployeesSuccess(response.data.data));
 }
@@ -24,11 +24,11 @@ export function* saveEmployeeSaga({ payload }) {
 
 export function* removeEmployeeSaga({ payload }) {
   yield put(actions.requestEmployee());
-  const response = yield axios.delete(`${apiRoot}/${payload._id}`);
+  const response = yield axios.delete(`${apiRoot}/${payload.id}`);
   yield put(actions.removeEmployeeSuccess(response.data.data));
 }
 
-export function* removeAndReloadProjectsSaga(action) {
+export function* removeAndReloadEmployeeSaga(action) {
   yield* removeEmployeeSaga(action);
   yield* listEmployeesSaga();
 }
@@ -40,11 +40,12 @@ export function* saveAndReloadEmployeeSaga(action) {
 }
 
 export default function* watch() {
+  console.log('registering sagas for employee',{TYPES, employeeList:TYPES.EMPLOYEE_LIST});
   yield takeEvery(TYPES.EMPLOYEE_LIST, listEmployeesSaga);
   yield takeLatest(TYPES.EMPLOYEE_GET_ONE, getEmployeeSaga);
   yield takeLatest(
-    TYPES.PROJECT_REMOVE_AND_RELOAD,
-    removeAndReloadProjectsSaga
+    TYPES.EMPLOYEE_REMOVE_AND_RELOAD,
+    removeAndReloadEmployeeSaga
   );
-  yield takeLatest(TYPES.PROJECT_SAVE_AND_RELOAD, saveAndReloadEmployeeSaga);
+  yield takeLatest(TYPES.EMPLOYEE_SAVE_AND_RELOAD, saveAndReloadEmployeeSaga);
 }

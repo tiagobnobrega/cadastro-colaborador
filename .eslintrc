@@ -9,7 +9,6 @@
     "react/jsx-filename-extension": [1, {
       "extensions": [".js", ".jsx"]
     }],
-    "no-undef":"off",
     "babel/semi": 1,
     "prefer-template": 2,
     "jsx-a11y/anchor-is-valid": "off",

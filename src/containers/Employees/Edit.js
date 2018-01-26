@@ -5,7 +5,7 @@ import { getEmployee, listEmployees, saveAndReload } from '../../actions';
 
 import './style.css';
 
-class ListEmployees extends React.Component {
+class EditEmployee extends React.Component {
   // static propTypes = {}
   // static defaultProps = {}
   // state = {}
@@ -15,37 +15,20 @@ class ListEmployees extends React.Component {
   }
 
   componentDidMount() {
-    this.props.listEmployees();
+    const { id } = this.props;
+    this.props.getEmployee(id);
   }
   handleClickProject = id => {
     console.log(id);
   };
 
-  renderLines = () => {
-    const { employees } = this.props;
-    return employees.data.map(e => {
-      return (
-        <tr style={{ cursor: 'pointer' }} key={e._id}>
-          <td
-            onClick={() => {
-              this.handleClickProject(e._id);
-            }}
-          >
-            <Link to={`/employee/${e._id}`}>{e.name}</Link>
-          </td>
-          <td>{e.birthday}</td>
-          <td>{e.gender}</td>
-        </tr>
-      );
-    });
-  };
-
   render() {
-    const { employees } = this.props;
+    const { employees: { isFetching, one } } = this.props;
+    console.log(one);
     return (
       <div className="employee-container">
         <div>
-          {employees.isFetching ? (
+          {isFetching ? (
             <h3>loading...</h3>
           ) : (
             <table>
@@ -56,7 +39,7 @@ class ListEmployees extends React.Component {
                   <th>Sexo</th>
                 </tr>
               </thead>
-              <tbody>{this.renderLines()}</tbody>
+              <tbody />
             </table>
           )}
           <button onClick={this.handleNewProject}>New Project</button>
@@ -68,8 +51,11 @@ class ListEmployees extends React.Component {
   }
 }
 
-function mapStateToProps({ employees }) {
-  return { employees };
+function mapStateToProps({ employees }, ownProps) {
+  return {
+    employees,
+    id: ownProps.match.params.id,
+  };
 }
 // function mapDispatchToProps(dispatch) {
 //   return bindActionCreators(actions, dispatch);
@@ -79,4 +65,4 @@ export default connect(mapStateToProps, {
   getEmployee,
   listEmployees,
   saveAndReload,
-})(ListEmployees);
+})(EditEmployee);
