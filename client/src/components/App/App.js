@@ -10,6 +10,7 @@ import Home from '../../containers/Home';
 import About from '../../containers/About';
 import EmployeesList from '../../containers/Employees/List';
 import EmployeesEdit from '../../containers/Employees/Edit';
+import EmployeesAdd from '../../containers/Employees/Add';
 
 class App extends Component {
   constructor() {
@@ -42,6 +43,7 @@ class App extends Component {
               <Route exact path="/home" component={Home} />
               <Route exact path="/about" component={About} />
               <Route exact path="/employee" component={EmployeesList} />
+              <Route exact path="/employee/add" component={EmployeesAdd} />
               <Route exact path="/employee/:id" component={EmployeesEdit} />
 
               <Redirect exact from="/" to="/home" />

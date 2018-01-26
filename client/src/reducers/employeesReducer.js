@@ -8,33 +8,36 @@ export const INITIAL_STATE = {
   isFetching: false,
 };
 
-export const HANDLERS = {
-  [TYPES.EMPLOYEE_REQUEST]: (
-    state = INITIAL_STATE,
-    { type, payload, meta }
-  ) => {
-    return { ...state, isFetching: true };
-  },
-  [TYPES.EMPLOYEE_LIST_SUCCESS]: (
-    state = INITIAL_STATE,
-    { type, payload, meta }
-  ) => {
-    return {
-      ...state,
-      data: payload,
-      isFetching: false,
-    };
-  },
-  [TYPES.EMPLOYEE_GET_ONE_SUCCESS]: (
-    state = INITIAL_STATE,
-    { type, payload, meta }
-  ) => {
-    return {
-      ...state,
-      one: payload[0],
-      isFetching: false,
-    };
-  },
+const reducer = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    case TYPES.EMPLOYEE_REQUEST: {
+      return { ...state, isFetching: true };
+    }
+    case TYPES.EMPLOYEE_LIST_SUCCESS: {
+      return {
+        ...state,
+        data: action.payload,
+        isFetching: false,
+      };
+    }
+    case TYPES.EMPLOYEE_GET_ONE_SUCCESS: {
+      return {
+        ...state,
+        one: action.payload[0],
+        isFetching: false,
+      };
+    }
+    case TYPES.EMPLOYEE_REMOVE_SUCCESS: {
+      return {
+        ...state,
+        one: {},
+        isFetching: false,
+      };
+    }
+
+    default:
+      return state;
+  }
 };
 
-export default handleActions(HANDLERS, INITIAL_STATE);
+export default reducer;

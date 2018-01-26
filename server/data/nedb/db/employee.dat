@@ -1,12 +1,19 @@
-{"name":"Jane Doe","birthday":"2017-01-22","gender":"F","_id":"fr6aUbPS8BuoRIbR"}
 {"name":"John Doe","birthday":"2017-01-23","gender":"M","_id":"0D9hlb7wRLjyQTpx"}
-{"_id":"DYU0xzfxWlHq8JRH"}
-{"_id":"smPY2jM6UbQDkgTY"}
-{"_id":"fr6aUbPS8BuoRIbR","name":"Jane Doe","gender":"M","birthday":"2017-01-22"}
-{"_id":"fr6aUbPS8BuoRIbR","name":"Jane Doe","gender":"M","birthday":"2017-01-22"}
-{"_id":"fr6aUbPS8BuoRIbR","name":"Jane Doe","gender":"M","birthday":"2017-01-22"}
-{"_id":"fr6aUbPS8BuoRIbR","name":"Jane Doe","gender":"M","birthday":"2017-01-22"}
-{"_id":"fr6aUbPS8BuoRIbR","name":"Jane Doe","gender":"M","birthday":"2017-01-22"}
-{"$$deleted":true,"_id":"DYU0xzfxWlHq8JRH"}
-{"$$deleted":true,"_id":"smPY2jM6UbQDkgTY"}
 {"_id":"fr6aUbPS8BuoRIbR","name":"Jane Doe","gender":"M","birthday":"2017-01-23"}
+{"_id":"0D9hlb7wRLjyQTpx","name":"John Doe","gender":"M","birthday":"2017-01-21"}
+{"$$deleted":true,"_id":"0D9hlb7wRLjyQTpx"}
+{"name":"novo","gender":"","birthday":"2017-01-20","_id":"vmOufjFH5hXl5h4X"}
+{"$$deleted":true,"_id":"vmOufjFH5hXl5h4X"}
+{"name":"John Doe","gender":"F","birthday":"2017-01-22","_id":"CNCUShWiz3dZgLJG"}
+{"name":"Fulano","gender":"M","birthday":"2018-01-02","_id":"N3qbFxkX8wXzkJqd"}
+{"$$deleted":true,"_id":"fr6aUbPS8BuoRIbR"}
+{"name":"a","gender":"M","birthday":"s","_id":"ansBPAGoeREM9tCe"}
+{"$$deleted":true,"_id":"ansBPAGoeREM9tCe"}
+{"name":"a","gender":"M","birthday":"a","_id":"CRPiJDWTRwYFfRUx"}
+{"$$deleted":true,"_id":"CRPiJDWTRwYFfRUx"}
+{"name":"aaa","gender":"M","birthday":"s","_id":"CMyAOXIXSyDhUWBM"}
+{"$$deleted":true,"_id":"CMyAOXIXSyDhUWBM"}
+{"name":"a","gender":"M","birthday":"a","_id":"fpDYvmAIBWKGXZeS"}
+{"$$deleted":true,"_id":"fpDYvmAIBWKGXZeS"}
+{"name":"aa","gender":"M","birthday":"sss","_id":"F2IZ2CeCya69yg45"}
+{"$$deleted":true,"_id":"F2IZ2CeCya69yg45"}

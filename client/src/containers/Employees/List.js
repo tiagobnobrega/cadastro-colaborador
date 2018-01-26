@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getEmployee, listEmployees, saveAndReload } from '../../actions';
+import { getEmployee, listEmployees, removeEmployee } from '../../actions';
 
 import './style.css';
 
@@ -15,11 +15,14 @@ class ListEmployees extends React.Component {
   }
 
   componentDidMount() {
+    console.log('calling listEmployees');
     this.props.listEmployees();
   }
 
-  handleClickProject = id => {
-    console.log(id);
+  handleRemove = id => {
+    if(window.confirm('Tem certeza que deseja excluir ?')){
+      this.props.removeEmployee(id, this.props.listEmployees);
+    }
   };
 
   renderLines = () => {
@@ -27,15 +30,14 @@ class ListEmployees extends React.Component {
     return employees.data.map(e => {
       return (
         <tr style={{ cursor: 'pointer' }} key={e._id}>
-          <td
-            onClick={() => {
-              this.handleClickProject(e._id);
-            }}
-          >
+          <td>
             <Link to={`/employee/${e._id}`}>{e.name}</Link>
           </td>
           <td>{e.birthday}</td>
           <td>{e.gender}</td>
+          <td>
+            <button onClick={() => this.handleRemove(e._id)}>Remover</button>
+          </td>
         </tr>
       );
     });
@@ -55,12 +57,13 @@ class ListEmployees extends React.Component {
                   <th>Nome</th>
                   <th>Data de Nascimento</th>
                   <th>Sexo</th>
+                  <th />
                 </tr>
               </thead>
               <tbody>{this.renderLines()}</tbody>
             </table>
           )}
-          <button onClick={this.handleNewProject}>New Project</button>
+          <Link to={`/employee/add`}>Adicionar</Link>
         </div>
         <hr />
         {/*<div>{this.renderSelectedProject(selectedProject)}</div>*/}
@@ -79,5 +82,5 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps, {
   getEmployee,
   listEmployees,
-  saveAndReload,
+  removeEmployee,
 })(ListEmployees);
