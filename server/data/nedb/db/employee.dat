@@ -1,0 +1,12 @@
+{"name":"Jane Doe","birthday":"2017-01-22","gender":"F","_id":"fr6aUbPS8BuoRIbR"}
+{"name":"John Doe","birthday":"2017-01-23","gender":"M","_id":"0D9hlb7wRLjyQTpx"}
+{"_id":"DYU0xzfxWlHq8JRH"}
+{"_id":"smPY2jM6UbQDkgTY"}
+{"_id":"fr6aUbPS8BuoRIbR","name":"Jane Doe","gender":"M","birthday":"2017-01-22"}
+{"_id":"fr6aUbPS8BuoRIbR","name":"Jane Doe","gender":"M","birthday":"2017-01-22"}
+{"_id":"fr6aUbPS8BuoRIbR","name":"Jane Doe","gender":"M","birthday":"2017-01-22"}
+{"_id":"fr6aUbPS8BuoRIbR","name":"Jane Doe","gender":"M","birthday":"2017-01-22"}
+{"_id":"fr6aUbPS8BuoRIbR","name":"Jane Doe","gender":"M","birthday":"2017-01-22"}
+{"$$deleted":true,"_id":"DYU0xzfxWlHq8JRH"}
+{"$$deleted":true,"_id":"smPY2jM6UbQDkgTY"}
+{"_id":"fr6aUbPS8BuoRIbR","name":"Jane Doe","gender":"M","birthday":"2017-01-23"}
