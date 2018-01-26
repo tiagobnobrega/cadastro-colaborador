@@ -1,4 +1,4 @@
-import { takeEvery, takeLatest, put } from 'redux-saga/effects';
+import { takeEvery, takeLatest, put, call } from 'redux-saga/effects';
 import axios from 'axios';
 import * as actions from '../actions';
 import { TYPES } from '../actions';
@@ -16,10 +16,13 @@ export function* getEmployeeSaga({ payload }) {
   yield put(actions.getEmployeeSuccess(response.data.data));
 }
 
-export function* saveEmployeeSaga({ payload }) {
-  yield put(actions.requestEmployee);
-  const response = yield axios.post(apiRoot, payload.project);
+export function* saveEmployeeSaga({ payload, meta }) {
+  yield put(actions.requestEmployee());
+  const response = yield axios.post(apiRoot, payload.employee);
   yield put(actions.saveEmployeeSuccess(response.data.data));
+  if (meta.onSuccess) {
+    yield call(meta.onSuccess, response.data.data);
+  }
 }
 
 export function* removeEmployeeSaga({ payload }) {
@@ -40,9 +43,13 @@ export function* saveAndReloadEmployeeSaga(action) {
 }
 
 export default function* watch() {
-  console.log('registering sagas for employee',{TYPES, employeeList:TYPES.EMPLOYEE_LIST});
+  console.log('registering sagas for employee', {
+    TYPES,
+    employeeList: TYPES.EMPLOYEE_LIST,
+  });
   yield takeEvery(TYPES.EMPLOYEE_LIST, listEmployeesSaga);
   yield takeLatest(TYPES.EMPLOYEE_GET_ONE, getEmployeeSaga);
+  yield  takeLatest(TYPES.EMPLOYEE_SAVE,saveEmployeeSaga);
   yield takeLatest(
     TYPES.EMPLOYEE_REMOVE_AND_RELOAD,
     removeAndReloadEmployeeSaga

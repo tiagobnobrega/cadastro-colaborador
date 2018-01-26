@@ -17,6 +17,7 @@ class ListEmployees extends React.Component {
   componentDidMount() {
     this.props.listEmployees();
   }
+
   handleClickProject = id => {
     console.log(id);
   };
@@ -68,8 +69,8 @@ class ListEmployees extends React.Component {
   }
 }
 
-function mapStateToProps({ employees }) {
-  return { employees };
+function mapStateToProps(state) {
+  return { employees: state.employees };
 }
 // function mapDispatchToProps(dispatch) {
 //   return bindActionCreators(actions, dispatch);

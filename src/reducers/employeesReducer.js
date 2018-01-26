@@ -4,7 +4,7 @@ import { handleActions } from 'redux-actions';
 // the initial state of this reducer
 export const INITIAL_STATE = {
   data: [],
-  one: undefined,
+  one: {},
   isFetching: false,
 };
 
@@ -20,6 +20,7 @@ export const HANDLERS = {
     { type, payload, meta }
   ) => {
     return {
+      ...state,
       data: payload,
       isFetching: false,
     };
@@ -29,6 +30,7 @@ export const HANDLERS = {
     { type, payload, meta }
   ) => {
     return {
+      ...state,
       one: payload[0],
       isFetching: false,
     };

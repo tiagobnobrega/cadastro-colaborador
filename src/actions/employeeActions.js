@@ -44,17 +44,21 @@ export const getEmployeeFail = createAction(
 );
 export const getEmployeeSuccess = createAction(
   TYPES.EMPLOYEE_GET_ONE_SUCCESS,
-  projects => projects
+  employee => employee
 );
 
 export const setSelectedEmployee = createAction(
   TYPES.EMPLOYEE_SELECT,
-  project => project
+  employee => employee
 );
 
-export const saveEmployee = createAction(TYPES.EMPLOYEE_SAVE, project => ({
-  project,
-}));
+export const saveEmployee = createAction(
+  TYPES.EMPLOYEE_SAVE,
+  employee => ({
+    employee,
+  }),
+  (employee, onSuccess) => ({ onSuccess })
+);
 export const saveEmployeeSuccess = createAction(TYPES.EMPLOYEE_SAVE_SUCCESS);
 export const saveEmployeeFail = createAction(TYPES.EMPLOYEE_SAVE_FAIL);
 
@@ -73,5 +77,5 @@ export const removeAndReload = createAction(
 );
 export const saveAndReload = createAction(
   TYPES.EMPLOYEE_SAVE_AND_RELOAD,
-  project => ({ project })
+  employee => ({ employee })
 );
